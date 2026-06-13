@@ -2,8 +2,16 @@ from math import radians, sin, cos, sqrt, atan2
 from ortools.constraint_solver import pywrapcp
 from ortools.constraint_solver import routing_enums_pb2
 import openrouteservice
+import os
+from dotenv import load_dotenv
 
-API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImFlZWZkYTljNDllMzRlNDlhOGIxNWYwZGZjYzk0OGQ5IiwiaCI6Im11cm11cjY0In0="
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variable
+API_KEY = os.getenv('OPENROUTESERVICE_API_KEY')
+if not API_KEY:
+    raise ValueError("OPENROUTESERVICE_API_KEY environment variable is not set. Please check your .env file.")
 
 def normalize_location(point):
     """Accept [lat, lon] or [lon, lat] and normalize to (lon, lat)."""

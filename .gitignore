@@ -6,6 +6,11 @@ ecoroute/
 __pycache__/
 *.pyc
 
+# Environment variables (do not commit)
+.env
+.env.local
+.env.*.local
+
 # OS files
 .DS_Store
 Thumbs.db
