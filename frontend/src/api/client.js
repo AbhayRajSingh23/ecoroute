@@ -1,12 +1,9 @@
 import axios from "axios";
 
-const ORDER_API =
-  import.meta.env.VITE_ORDER_API ||
-  "http://localhost:5001/orders";
+const ORDER_API = import.meta.env.VITE_ORDER_API || "/api/orders";
 
-const DRIVER_API =
-  import.meta.env.VITE_DRIVER_API ||
-  "http://localhost:5002/drivers";
+const DRIVER_API = import.meta.env.VITE_DRIVER_API || "/api/drivers";
+
 
 const ordersApi = axios.create({
   baseURL: ORDER_API,

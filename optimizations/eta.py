@@ -1,7 +1,10 @@
 import openrouteservice
+import os
+from dotenv import load_dotenv
 
-API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImFlZWZkYTljNDllMzRlNDlhOGIxNWYwZGZjYzk0OGQ5IiwiaCI6Im11cm11cjY0In0="
+load_dotenv()
 
+API_KEY = os.getenv('OPENROUTESERVICE_API_KEY')
 client = openrouteservice.Client(key=API_KEY)
 
 
