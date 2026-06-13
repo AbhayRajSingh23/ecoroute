@@ -1,15 +1,22 @@
-import axios from 'axios'
+import axios from "axios";
+
+const ORDER_API =
+  import.meta.env.VITE_ORDER_API ||
+  "http://localhost:5001/orders";
+
+const DRIVER_API =
+  import.meta.env.VITE_DRIVER_API ||
+  "http://localhost:5002/drivers";
 
 const ordersApi = axios.create({
-  baseURL: '/api/orders',
-  headers: { 'Content-Type': 'application/json' },
-})
+  baseURL: ORDER_API,
+  headers: { "Content-Type": "application/json" },
+});
 
 const driversApi = axios.create({
-  baseURL: '/api/drivers',
-  headers: { 'Content-Type': 'application/json' },
-})
-
+  baseURL: DRIVER_API,
+  headers: { "Content-Type": "application/json" },
+});
 // Orders
 export const createOrder = (data) => ordersApi.post('/', data)
 export const getOrders = () => ordersApi.get('/')
